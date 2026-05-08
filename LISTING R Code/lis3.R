@@ -16,18 +16,19 @@ library(dplyr)
 library(gt)
 library(rstudioapi)
 
-adams_path <- path.expand("~/Desktop/listings/listing_project/ADAM_RData")
-adsl <- get(load(paste0(adams_path, "/adsl.RData")))
+adams_path <- path.expand("~/Desktop/listings/listing_project/SDTM_RData")
+sv <- get(load(paste0(adams_path, "/sv.RData")))
 
-head(adsl)
 
-tbl <- adsl %>%
+tbl <- sv %>%
   select(
-    USUBJID, RFICDT
+    USUBJID, VISITNUM, SVSTDTC, SVENDTC
   ) %>%
   set_variable_labels(
-    USUBJID = "Subject\nNumber",
-    RFICDT = "Date of Informed Consent"
+    USUBJID = "Subject Number",
+    VISITNUM = "Visit",
+    SVSTDTC = "Start date of Visit",
+    SVENDTC = "End date of Visit"
   )
 
-format_listing(tbl, "~/Desktop/listings/listing_project/LISTING OUTPUT", "lis2")
+format_listing(tbl, "~/Desktop/listings/listing_project/LISTING OUTPUT", "lis3", "16.2.1.3 Study Visits")

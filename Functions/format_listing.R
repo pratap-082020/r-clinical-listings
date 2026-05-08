@@ -8,7 +8,7 @@
 # Output       : lis1.rtf
 #---------------------------------------------------------
 
-format_listing <- function(dataset, output_folder, filename){
+format_listing <- function(dataset, output_folder, filename, title){
   
   current_time <- format(Sys.time(), "%H:%M  %A, %b %d, %Y")
   output_folder <- path.expand(output_folder)
@@ -30,7 +30,7 @@ format_listing <- function(dataset, output_folder, filename){
         </table>"
         )
       ),
-      subtitle = "16.2.1.1 Assignment to Analysis Populations"
+      subtitle = title
     ) %>% 
     cols_align(
       align = "left",

@@ -30,4 +30,4 @@ tbl <- adsl %>%
     RFICDT = "Date of Informed Consent"
   )
 
-format_listing(tbl, "~/Desktop/listings/listing_project/LISTING OUTPUT", "lis2")
+format_listing(tbl, "~/Desktop/listings/listing_project/LISTING OUTPUT", "lis2", "16.2.1.1 Assignment to Analysis Populations")
