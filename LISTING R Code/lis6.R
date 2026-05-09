@@ -1,11 +1,11 @@
 #---------------------------------------------------------
-# Program Name : lis4.R
+# Program Name : lis6.R
 # Study        : AIRIS PHARMA Private Limited.
-# Purpose      : 16.2.1.4 Subject Demographics
+# Purpose      : 16.2.1.6 Prior and Concomitant Medications
 # Author       : Vijay Pratap
-# Created Date : 08 May Fri, 2026
+# Created Date : 09 May Fri, 2026
 # Input        : adsl.RData
-# Output       : lis4.pdf
+# Output       : lis6.pdf
 #---------------------------------------------------------
 
 install.packages("labelled")
@@ -19,29 +19,16 @@ library(rstudioapi)
 adams_path <- path.expand("~/Desktop/listings/listing_project/ADAM_RData")
 adsl <- get(load(paste0(adams_path, "/adsl.RData")))
 
-empty_vars <- c(
-  "HEIGHT",
-  "WEIGHT",
-  "BMI"
-)
-
-adsl[empty_vars] <- NA
 
 tbl <- adsl %>%
-  mutate(
-    BMI = WEIGHT / (HEIGHT * HEIGHT)
-  ) %>%
   select(
-    USUBJID, AGE, SEX, RACE, HEIGHT, WEIGHT, BMI
+    USUBJID, DCSREAS, TRTEDT, EOSSTT
   ) %>%
   set_variable_labels(
     USUBJID = "Subject Number",
-    AGE = "Age* (years)",
-    SEX = "Sex",
-    RACE = "Race",
-    HEIGHT = "Height (cm)", 
-    WEIGHT = "Weight (kg)", 
-    BMI = "BMI (kg/m2)"
+    DCSREAS	= "Reason for Discontinuation from Study",
+    TRTEDT	= "Date of Last Exposure to Treatment",
+    EOSSTT	= "End of Study Status"
   )
 
-format_listing(tbl, "~/Desktop/listings/listing_project/LISTING OUTPUT", "lis4", "16.2.1.4 Subject Demographics")
+format_listing(tbl, "~/Desktop/listings/listing_project/LISTING OUTPUT", "lis5", "16.2.1.5 Withdrawals from the Study")
