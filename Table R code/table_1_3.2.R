@@ -1,4 +1,3 @@
-
 library(dplyr)
 library(tidyr)
 library(gt)
@@ -21,7 +20,6 @@ denom <- adsl_pre %>%
   summarise(denom = n_distinct(USUBJID), .groups = "drop")
 
 function_name <- function(out, variable) {
-  
   var_name <- deparse(substitute(variable))
 
   adsl_final <- adsl_pre %>%
@@ -60,7 +58,6 @@ function_name <- function(out, variable) {
 function_name(out01, SAFFL)
 function_name(out02, DLTEVLFL)
 function_name(out03, PKEVLFL)
-
 
 final <- bind_rows(
   out01,
