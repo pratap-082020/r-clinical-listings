@@ -1,3 +1,5 @@
+insta
+
 library(dplyr)
 library(tidyr)
 library(gt)
@@ -76,8 +78,13 @@ final %>%
     t4 = "Drug 4",
     t5 = "Overall"
   ) %>%
-  tab_header(title = md("**Table 14.1.1 Subject Assignment to Analysis Populations**")) %>%
-  cols_align(align = "left", columns = everything())
+  tab_header(title = md("**Table 14.1.3 Subject Assignment to Analysis Populations**")) %>%
+  tab_options(
+    table.font.names = "Courier, monospace"
+  ) 
+
+
+
 
 
 header_dataset <- denom %>%
